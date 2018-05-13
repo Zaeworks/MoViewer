@@ -38,9 +38,7 @@ namespace MoViewer
         private void openItem_Click(object sender, EventArgs e)
         {
             if(openFile.ShowDialog() == DialogResult.OK)
-            {
                 LoadMo(openFile.FileName);
-            }
         }
 
         private void Main_DragDrop(object sender, DragEventArgs e)
@@ -48,5 +46,8 @@ namespace MoViewer
 
         private void Main_DragEnter(object sender, DragEventArgs e)
             => e.Effect = e.Data.GetDataPresent(DataFormats.FileDrop) ? DragDropEffects.All : DragDropEffects.None;
+
+        private void aboutItem_Click(object sender, EventArgs e)
+            => System.Diagnostics.Process.Start("https://github.com/Zaeworks/MoViewer");
     }
 }

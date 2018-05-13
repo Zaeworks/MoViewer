@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.grid = new System.Windows.Forms.DataGridView();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
@@ -60,8 +60,8 @@
             this.grid.AllowUserToDeleteRows = false;
             this.grid.AllowUserToOrderColumns = true;
             this.grid.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
-            this.grid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.grid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             this.grid.BackgroundColor = System.Drawing.SystemColors.Window;
             this.grid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.grid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
@@ -206,6 +206,7 @@
             this.aboutItem.Name = "aboutItem";
             this.aboutItem.Size = new System.Drawing.Size(82, 24);
             this.aboutItem.Text = "Github...";
+            this.aboutItem.Click += new System.EventHandler(this.aboutItem_Click);
             // 
             // openFile
             // 

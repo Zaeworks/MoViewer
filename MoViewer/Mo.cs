@@ -22,27 +22,23 @@ namespace MoViewer
                 Int32 N = br.ReadInt32(), O = br.ReadInt32(), T = br.ReadInt32();
                 // S = br.ReadInt32(), H = br.ReadInt32()
 
-                int head = -1;
                 var msgs = new Msg[N];
                 Encoding encoding = null;
 
                 stream.Seek(O, SeekOrigin.Begin);
                 Tuple<int, int>[] oData = new Tuple<int, int>[N];
                 for (int i = 0; i < N; i++)
-                {
                     oData[i] = new Tuple<int, int>(br.ReadInt32(), br.ReadInt32());
-                    if (oData[i].Item1 == 0) head = i;
-                }
 
                 stream.Seek(T, SeekOrigin.Begin);
                 Tuple<int, int>[] tData = new Tuple<int, int>[N];
                 for (int i = 0; i < N; i++)
                     tData[i] = new Tuple<int, int>(br.ReadInt32(), br.ReadInt32());
 
-                if (head != -1)
+                if (oData[0].Item1 == 0) // header
                 {
-                    stream.Seek(tData[head].Item2, SeekOrigin.Begin);
-                    var msg = Encoding.ASCII.GetString(br.ReadBytes(tData[head].Item1)).Split(new[] { '\n' });
+                    stream.Seek(tData[0].Item2, SeekOrigin.Begin);
+                    var msg = Encoding.ASCII.GetString(br.ReadBytes(tData[0].Item1)).Split(new[] { '\n' });
                     var charset = msg.Where(s => s.StartsWith("Content-Type")).First().Split(new[] { '=' }, 2)[1].Trim();
                     encoding = Encoding.GetEncoding(charset);
                 }
